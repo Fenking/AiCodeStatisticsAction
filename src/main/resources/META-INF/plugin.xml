@@ -1,0 +1,45 @@
+<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
+<idea-plugin>
+    <!-- Unique identifier of the plugin. It should be FQN. It cannot be changed between the plugin versions. -->
+    <id>com.luban.plugin</id>
+
+    <!-- Public plugin name should be written in Title Case.
+         Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-name -->
+    <name>AiCodeStatisticsAction</name>
+
+    <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
+    <vendor email="fenking@outlook.com" url="https://github.com/Fenking">luban</vendor>
+
+    <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager.
+         Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
+         Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description -->
+    <description><![CDATA[
+    <p>用于 Github Copilot 代码统计功能。</p>
+    <p>使用方法：</p>
+    <ol>
+        <li>选中 Github Copilot 生成的代码。</li>
+        <li>选择右键菜单底部的 <b>AiCodeStatisticsAction</b> 进行注释环绕。</li>
+        <li>可选使用快捷键（默认 <b>Alt+I</b>）进行注释环绕。</li>
+        <li>再次选择右键菜单底部的 <b>AiCodeStatisticsAction</b> 或者使用快捷键，进行注释删除。</li>
+        <li>可以在 <b>Settings -> Keymap -> AiCodeStatisticsAction</b> 中修改快捷键。</li>
+    </ol>
+]]></description>
+
+
+    <!-- Product and plugin compatibility requirements.
+         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
+    <depends>com.intellij.modules.platform</depends>
+
+    <!-- Extension points defined by the plugin.
+         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
+    <extensions defaultExtensionNs="com.intellij">
+
+    </extensions>
+    <actions>
+        <action id="testAction" class="com.luban.plugin.AiCodeStatisticsAction"
+                text="AiCodeStatisticsAction" description="AiCodeStatisticsAction">
+            <add-to-group group-id="EditorPopupMenu" anchor="last"/>
+            <keyboard-shortcut keymap="$default" first-keystroke="alt I"/>
+        </action>
+    </actions>
+</idea-plugin>
